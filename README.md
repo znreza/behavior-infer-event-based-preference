@@ -19,7 +19,7 @@ assistant start overriding instructions the user has just given. No framing
 we test avoids both.
 
 - **Paper:** ARXIV_URL
-- **Dataset:** HF_URL
+- **Dataset:** [HuggingFace](https://huggingface.co/datasets/Znreza/event-to-preference-inference)
 
 ## The diagnostic
 
