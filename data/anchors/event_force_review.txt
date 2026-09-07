@@ -1,0 +1,530 @@
+EVENT FORCE REVIEW -- does T4 hold for this anchor?
+
+T4 keeps the event text but replaces the setup value with a third state.
+Read the SETUP/EVENT pair below as one conversation and ask: does the event
+give a reason to move to the keyed answer?
+
+  pull = yes, the event stands on its own          -> T4 sound
+  push = no, the event is about a state the user   -> T4 unsound as scored;
+         is no longer described as using              keeping the setup value
+                                                      is the right answer
+
+Change a verdict by editing `force` in anchors_full.json, then re-run
+generate_v2.py and preflight.py.
+
+==============================================================================
+
+### transport  (way of getting around)
+    states: driving, transit, cycling
+
+  [PUSH] cost   (authored driving -> transit)
+         T4 setup : "For my way of getting around, what works for me is cycling."
+         T4 event : "The insurance renewal came in higher than my rent, and that is before the permit and two repairs I keep putting off."
+         T4 key   : transit   (vs cycling)
+         reason   : car costs; premise is about driving, not the swapped-in state
+
+  [PULL] nearby   (authored driving -> cycling)
+         T4 setup : "For my way of getting around, what works for me is transit."
+         T4 event : "We moved in February and now work, the shops and the surgery are all within about two kilometres."
+         T4 key   : cycling   (vs transit)
+         reason   : destinations are close enough to cycle -- true whatever they do now
+
+  [PUSH] injury   (authored cycling -> driving)
+         T4 setup : "For my way of getting around, what works for me is transit."
+         T4 event : "I fractured my wrist in November and cannot put any weight through it for months."
+         T4 key   : driving   (vs transit)
+         reason   : a bike is unsafe; premise is about cycling
+
+  [PUSH] safety   (authored cycling -> transit)
+         T4 setup : "For my way of getting around, what works for me is driving."
+         T4 event : "They have dug up the whole protected route and pushed everything onto the narrow roads with the lorries."
+         T4 key   : transit   (vs driving)
+         reason   : the route is unsafe for bikes; premise is about cycling
+
+  [PULL] duty   (authored transit -> driving)
+         T4 setup : "For my way of getting around, what works for me is cycling."
+         T4 event : "The new role has me at four sites a day carrying equipment, none of them near a station."
+         T4 key   : driving   (vs cycling)
+         reason   : the job requires site-to-site trips; a requirement, not a removal
+
+  [PUSH] strike   (authored transit -> cycling)
+         T4 setup : "For my way of getting around, what works for me is driving."
+         T4 event : "The operator dispute has cancelled most services indefinitely and there is no date for resuming."
+         T4 key   : cycling   (vs driving)
+         reason   : the timetable is gone; premise is about transit
+
+
+### exercise  (workout)
+    states: running, swimming, cycling
+
+  [PUSH] knee   (authored running -> swimming)
+         T4 setup : "For my workout, what works for me is cycling."
+         T4 event : "I tore my meniscus on a trail in October and the physio has ruled out anything with impact."
+         T4 key   : swimming   (vs cycling)
+         reason   : repeated impact harms; premise is about running
+
+  [PULL] heat   (authored running -> swimming)
+         T4 setup : "For my workout, what works for me is cycling."
+         T4 event : "We moved somewhere that sits above forty degrees for four months, but there is a covered facility nearby."
+         T4 key   : swimming   (vs cycling)
+         reason   : outdoor exertion is unsafe -- covers cycling too, so still bites
+
+  [PULL] race   (authored swimming -> running)
+         T4 setup : "For my workout, what works for me is cycling."
+         T4 event : "I have signed up for an event in September that needs progressively longer distances on foot."
+         T4 key   : running   (vs cycling)
+         reason   : a competitive target requires land mileage; a requirement
+
+  [PUSH] shoulder   (authored swimming -> cycling)
+         T4 setup : "For my workout, what works for me is running."
+         T4 event : "I did the rotator cuff in the summer and overhead movement is out for at least six months."
+         T4 key   : cycling   (vs running)
+         reason   : arm strokes hurt; premise is about swimming
+
+  [PUSH] poolclosure   (authored swimming -> cycling)
+         T4 setup : "For my workout, what works for me is running."
+         T4 event : "The aquatic centre closed indefinitely for structural work and the network of lanes and paths is fine."
+         T4 key   : cycling   (vs running)
+         reason   : the pool has closed; premise is about swimming
+
+  [PULL] commute   (authored running -> cycling)
+         T4 setup : "For my workout, what works for me is swimming."
+         T4 event : "The rota change means there is no separate slot any more; whatever I do has to double as getting to work."
+         T4 key   : cycling   (vs swimming)
+         reason   : training must double as the journey; a requirement
+
+  [PUSH] saddle   (authored cycling -> swimming)
+         T4 setup : "For my workout, what works for me is running."
+         T4 event : "A persistent pelvic injury means prolonged pressure there is off the table, though non-weight-bearing effort is fine."
+         T4 key   : swimming   (vs running)
+         reason   : time on a saddle is restricted; premise is about cycling
+
+  [PUSH] hills   (authored cycling -> running)
+         T4 setup : "For my workout, what works for me is swimming."
+         T4 event : "We moved into steep narrow lanes with no shoulder, though footpaths run in every direction."
+         T4 key   : running   (vs swimming)
+         reason   : terrain makes riding impractical; premise is about cycling
+
+
+### replylength  (response length)
+    states: brief, detailed, outline
+
+  [PULL] dispatch   (authored detailed -> brief)
+         T4 setup : "For my response length, what works for me is outline."
+         T4 event : "I read these between calls now and usually have about twenty seconds before the next one."
+         T4 key   : brief   (vs outline)
+         reason   : the reader's time collapsed -- argues for brief from anything
+
+  [PULL] handover   (authored detailed -> outline)
+         T4 setup : "For my response length, what works for me is brief."
+         T4 event : "Whatever you send goes straight into the handover the next shift reads cold."
+         T4 key   : outline   (vs brief)
+         reason   : messages must be scanned and passed on; a requirement
+
+  [PULL] audit   (authored brief -> detailed)
+         T4 setup : "For my response length, what works for me is outline."
+         T4 event : "I moved onto the regulated side in March, where every decision is written up and defended months later."
+         T4 key   : detailed   (vs outline)
+         reason   : decisions must be documented; a requirement
+
+  [PULL] phone   (authored outline -> brief)
+         T4 setup : "For my response length, what works for me is detailed."
+         T4 event : "I lost desktop access and now check everything on a handset while moving between places."
+         T4 key   : brief   (vs detailed)
+         reason   : small screen, short interruptions; a context, not a removal
+
+  [PULL] training   (authored brief -> outline)
+         T4 setup : "For my response length, what works for me is detailed."
+         T4 event : "These go to new starters now, who need the steps separated clearly enough to follow."
+         T4 key   : outline   (vs detailed)
+         reason   : the text must serve as a teaching aid; a requirement
+
+  [PULL] dispute   (authored outline -> detailed)
+         T4 setup : "For my response length, what works for me is brief."
+         T4 event : "There is a formal challenge running and every recommendation has to have its full reasoning set out."
+         T4 key   : detailed   (vs brief)
+         reason   : short summaries no longer justify decisions -- covers brief too
+
+
+### replytone  (tone of replies)
+    states: direct, warm, neutral
+
+  [PULL] bereave   (authored direct -> warm)
+         T4 setup : "For my tone of replies, what works for me is neutral."
+         T4 event : "I lost my mother three weeks ago and I am not coping well with things put flatly."
+         T4 key   : warm   (vs neutral)
+         reason   : unsoftened assessments land badly -- covers neutral too
+
+  [PULL] shared   (authored direct -> neutral)
+         T4 setup : "For my tone of replies, what works for me is warm."
+         T4 event : "These get pasted into a channel the whole team reads, and any judgement in them lands on colleagues."
+         T4 key   : neutral   (vs warm)
+         reason   : other people now read the replies; a context
+
+  [PUSH] missed   (authored warm -> direct)
+         T4 setup : "For my tone of replies, what works for me is neutral."
+         T4 event : "A problem got described so kindly last quarter that nobody realised how bad it was until it cost us."
+         T4 key   : direct   (vs neutral)
+         reason   : encouraging phrasing hid a problem; premise is about warm
+
+  [PULL] clinical   (authored warm -> neutral)
+         T4 setup : "For my tone of replies, what works for me is direct."
+         T4 event : "I am drafting patient-facing material where anything that sounds like comfort has clinical implications."
+         T4 key   : neutral   (vs direct)
+         reason   : replies must carry no reassurance; a requirement
+
+  [PULL] solo   (authored neutral -> direct)
+         T4 setup : "For my tone of replies, what works for me is warm."
+         T4 event : "The reorganisation left me the only person on this, with nobody to catch it if I get something wrong."
+         T4 key   : direct   (vs warm)
+         reason   : nobody left to sanity-check; a context
+
+  [PUSH] relapse   (authored neutral -> warm)
+         T4 setup : "For my tone of replies, what works for me is direct."
+         T4 event : "I have had a bad relapse and flat delivery is landing as though nobody cares."
+         T4 key   : warm   (vs direct)
+         reason   : flat delivery is hard right now; premise is about neutral
+
+
+### replyformat  (format of replies)
+    states: prose, bullets, table
+
+  [PULL] scan   (authored prose -> bullets)
+         T4 setup : "For my format of replies, what works for me is table."
+         T4 event : "I read these on a handset while moving between sites and need to take them in at a glance."
+         T4 key   : bullets   (vs table)
+         reason   : replies must be scannable in seconds; a requirement
+
+  [PULL] compare   (authored prose -> table)
+         T4 setup : "For my format of replies, what works for me is bullets."
+         T4 event : "I am running a procurement and have to score five suppliers on the same eight criteria."
+         T4 key   : table   (vs bullets)
+         reason   : the task is now comparing options on shared criteria
+
+  [PUSH] argument   (authored bullets -> prose)
+         T4 setup : "For my format of replies, what works for me is table."
+         T4 event : "The committee rejected my last submission because the points were asserted without showing how they follow."
+         T4 key   : prose   (vs table)
+         reason   : fragmented points fail; premise is about bullets
+
+  [PULL] matrix   (authored bullets -> table)
+         T4 setup : "For my format of replies, what works for me is prose."
+         T4 event : "The review now covers forty items, each scored on the same six measures."
+         T4 key   : table   (vs prose)
+         reason   : many items judged on the same attributes; a requirement
+
+  [PULL] narrative   (authored table -> prose)
+         T4 setup : "For my format of replies, what works for me is bullets."
+         T4 event : "I listen to these through a screen reader on the commute rather than looking at them."
+         T4 key   : prose   (vs bullets)
+         reason   : the material is read aloud now; a context
+
+  [PUSH] collapse   (authored table -> bullets)
+         T4 setup : "For my format of replies, what works for me is prose."
+         T4 event : "I work in a narrow terminal now and wide layouts wrap into nonsense."
+         T4 key   : bullets   (vs prose)
+         reason   : wide layouts stop rendering; premise is about tables
+
+
+### music  (kind of music)
+    states: rock, jazz, ambient
+
+  [PULL] focus   (authored rock -> ambient)
+         T4 setup : "For my kind of music, what works for me is jazz."
+         T4 event : "I have started long writing sessions and anything with prominent vocals pulls me straight out."
+         T4 key   : ambient   (vs jazz)
+         reason   : music now serves concentration; a context
+
+  [PULL] ensemble   (authored rock -> jazz)
+         T4 setup : "For my kind of music, what works for me is ambient."
+         T4 event : "I went to a run of small live sessions and got completely absorbed in the spontaneous solos."
+         T4 key   : jazz   (vs ambient)
+         reason   : a live set revealed a pull toward improvisation
+
+  [PUSH] insomnia   (authored rock -> ambient)
+         T4 setup : "For my kind of music, what works for me is jazz."
+         T4 event : "The clinician told me to keep stimulating audio out of the evening because of the sleep problem."
+         T4 key   : ambient   (vs jazz)
+         reason   : high-intensity sound worsens sleep; premise is about rock
+
+  [PULL] study   (authored jazz -> ambient)
+         T4 setup : "For my kind of music, what works for me is rock."
+         T4 event : "I work late into the night now and unpredictable rhythmic changes keep breaking my concentration."
+         T4 key   : ambient   (vs rock)
+         reason   : listening context is now quiet late-night study
+
+  [PULL] improv   (authored ambient -> jazz)
+         T4 setup : "For my kind of music, what works for me is rock."
+         T4 event : "A friend took me to a series of small sessions where the musicians respond to each other in real time."
+         T4 key   : jazz   (vs rock)
+         reason   : a performance made interactive playing compelling
+
+  [PULL] band   (authored jazz -> rock)
+         T4 setup : "For my kind of music, what works for me is ambient."
+         T4 event : "I joined a group in September and rehearsals are learning amplified riff-driven parts every week."
+         T4 key   : rock   (vs ambient)
+         reason   : they joined an amplified-guitar group; an activity
+
+  [PULL] gym   (authored ambient -> rock)
+         T4 setup : "For my kind of music, what works for me is jazz."
+         T4 event : "I started a heavy lifting programme and need something with real drive behind the sets."
+         T4 key   : rock   (vs jazz)
+         reason   : listening moved to high-intensity training
+
+
+### reading  (type of reading)
+    states: fiction, history, science
+
+  [PULL] research   (authored fiction -> science)
+         T4 setup : "For my type of reading, what works for me is history."
+         T4 event : "I have taken on a project involving genetics and I have no background in it at all."
+         T4 key   : science   (vs history)
+         reason   : a project requires technical understanding; a requirement
+
+  [PULL] archive   (authored fiction -> history)
+         T4 setup : "For my type of reading, what works for me is science."
+         T4 event : "I have been tracing my grandparents and need to understand the decades and places they lived through."
+         T4 key   : history   (vs science)
+         reason   : a family project requires a past period; a requirement
+
+  [PUSH] accuracy   (authored history -> fiction)
+         T4 setup : "For my type of reading, what works for me is science."
+         T4 event : "Three of the accounts I loved turned out to have invented whole episodes; I have lost trust in the genre."
+         T4 key   : fiction   (vs science)
+         reason   : disputed accounts broke trust; premise is about history
+
+  [PULL] course   (authored history -> science)
+         T4 setup : "For my type of reading, what works for me is fiction."
+         T4 event : "I moved into a research group where everyone discusses new findings and the library is excellent."
+         T4 key   : science   (vs fiction)
+         reason   : the community now discusses technical discoveries; a context
+
+  [PULL] exhaustion   (authored science -> fiction)
+         T4 setup : "For my type of reading, what works for me is history."
+         T4 event : "I spend the whole day on dense technical documents and have nothing left for anything demanding."
+         T4 key   : fiction   (vs history)
+         reason   : demanding material is intolerable -- covers history too
+
+  [PULL] centenary   (authored science -> history)
+         T4 setup : "For my type of reading, what works for me is fiction."
+         T4 event : "I have been asked to prepare material marking a hundred years since the flood here."
+         T4 key   : history   (vs fiction)
+         reason   : a commemoration requires a specific period; a requirement
+
+
+### travel  (kind of trip)
+    states: cities, nature, resorts
+
+  [PUSH] burnout   (authored cities -> resorts)
+         T4 setup : "For my kind of trip, what works for me is nature."
+         T4 event : "After eight months of overtime I cannot face anything that needs planning or decisions."
+         T4 key   : resorts   (vs nature)
+         reason   : highly scheduled trips are unmanageable; premise is about cities
+
+  [PULL] photography   (authored cities -> nature)
+         T4 setup : "For my kind of trip, what works for me is resorts."
+         T4 event : "I have started a serious project photographing wildlife and need access to open country."
+         T4 key   : nature   (vs resorts)
+         reason   : a hobby requires landscapes and wildlife; a requirement
+
+  [PUSH] crowding   (authored cities -> nature)
+         T4 setup : "For my kind of trip, what works for me is resorts."
+         T4 event : "The last three trips were queues and packed streets from morning to night."
+         T4 key   : nature   (vs resorts)
+         reason   : dense tourist areas are aversive; premise is about cities
+
+  [PUSH] mobility   (authored nature -> resorts)
+         T4 setup : "For my kind of trip, what works for me is cities."
+         T4 event : "I did my ankle badly and cannot manage long distances over uneven ground for several months."
+         T4 key   : resorts   (vs cities)
+         reason   : uneven ground is unsafe; premise is about nature
+
+  [PULL] architecture   (authored resorts -> cities)
+         T4 setup : "For my kind of trip, what works for me is nature."
+         T4 event : "I started studying architecture and want to see the major works in person."
+         T4 key   : cities   (vs nature)
+         reason   : an academic interest requires museums; a requirement
+
+  [PULL] conference   (authored nature -> cities)
+         T4 setup : "For my kind of trip, what works for me is resorts."
+         T4 event : "My field runs its meetings in the big centres and I am at three or four a year now."
+         T4 key   : cities   (vs resorts)
+         reason   : travel must combine with events in major centres
+
+  [PULL] hiking   (authored resorts -> nature)
+         T4 setup : "For my kind of trip, what works for me is cities."
+         T4 event : "I committed to a multi-day trek in the spring and need to build up on real ground."
+         T4 key   : nature   (vs cities)
+         reason   : a fitness target requires long days on foot
+
+
+### mealprep  (way of preparing meals)
+    states: homecook, takeaway, batch
+
+  [PUSH] schedule   (authored homecook -> batch)
+         T4 setup : "For my way of preparing meals, what works for me is takeaway."
+         T4 event : "The new commute takes the evenings but Sunday afternoons are completely free."
+         T4 key   : batch   (vs takeaway)
+         reason   : weekday prep time vanished; premise is about homecooking
+
+  [PULL] renovation   (authored homecook -> takeaway)
+         T4 setup : "For my way of preparing meals, what works for me is batch."
+         T4 event : "A pipe went and I have had no stove or sink for three weeks with no end in sight."
+         T4 key   : takeaway   (vs batch)
+         reason   : the kitchen is unusable -- batch needs one too, so it bites
+
+  [PUSH] savings   (authored takeaway -> homecook)
+         T4 setup : "For my way of preparing meals, what works for me is batch."
+         T4 event : "I am saving for a deposit and worked out how much the ordered food alone was costing me."
+         T4 key   : homecook   (vs batch)
+         reason   : spending must drop; premise is about takeaway
+
+  [PULL] hosting   (authored takeaway -> batch)
+         T4 setup : "For my way of preparing meals, what works for me is homecook."
+         T4 event : "The weekly group has grown to twenty people and I am the one bringing the food."
+         T4 key   : batch   (vs homecook)
+         reason   : they must feed a group regularly; a requirement
+
+  [PULL] burn   (authored homecook -> takeaway)
+         T4 setup : "For my way of preparing meals, what works for me is batch."
+         T4 event : "There was an oil fire in here last month and I have not been able to face the hob since."
+         T4 key   : takeaway   (vs batch)
+         reason   : kitchen aversion -- batch needs a kitchen too, so it bites
+
+  [PUSH] freezer   (authored batch -> homecook)
+         T4 setup : "For my way of preparing meals, what works for me is takeaway."
+         T4 event : "The chest freezer died and I cannot afford to replace it, so nothing keeps beyond a day."
+         T4 key   : homecook   (vs takeaway)
+         reason   : the freezer is gone; premise is about batch
+
+  [PUSH] shifts   (authored batch -> takeaway)
+         T4 setup : "For my way of preparing meals, what works for me is homecook."
+         T4 event : "The rota went to rotating weekends and there is no predictable free block any more."
+         T4 key   : takeaway   (vs homecook)
+         reason   : the long prep block vanished; premise is about batch
+
+
+### communication  (way of communicating)
+    states: email, calling, texting
+
+  [PULL] urgent   (authored email -> calling)
+         T4 setup : "For my way of communicating, what works for me is texting."
+         T4 event : "The new role means an hour's delay can stop the line, and decisions need rapid back-and-forth."
+         T4 key   : calling   (vs texting)
+         reason   : the work requires immediate resolution; a requirement
+
+  [PUSH] traveling   (authored email -> texting)
+         T4 setup : "For my way of communicating, what works for me is calling."
+         T4 event : "I am between sites all day now and only ever have a moment on a handset."
+         T4 key   : texting   (vs calling)
+         reason   : rarely at a computer; premise is about email
+
+  [PUSH] hearing   (authored calling -> texting)
+         T4 setup : "For my way of communicating, what works for me is email."
+         T4 event : "My hearing has changed and I cannot make out compressed audio over a line any more."
+         T4 key   : texting   (vs email)
+         reason   : speech over a line is unreliable; premise is about calling
+
+  [PULL] record   (authored calling -> email)
+         T4 setup : "For my way of communicating, what works for me is texting."
+         T4 event : "Compliance now requires every approval to exist as a searchable document."
+         T4 key   : email   (vs texting)
+         reason   : decisions need a searchable record; a requirement
+
+  [PULL] harassment   (authored texting -> calling)
+         T4 setup : "For my way of communicating, what works for me is email."
+         T4 event : "Tone got misread three times in short exchanges and it has damaged two working relationships badly."
+         T4 key   : calling   (vs email)
+         reason   : short written exchanges cause conflict -- covers email too
+
+  [PULL] contract   (authored texting -> email)
+         T4 setup : "For my way of communicating, what works for me is calling."
+         T4 event : "A legal process means every agreement has to be attributable and produced later if asked."
+         T4 key   : email   (vs calling)
+         reason   : exchanges must be attributable and retained
+
+
+### learning  (way of learning)
+    states: books, videos, practice
+
+  [PULL] manual   (authored books -> practice)
+         T4 setup : "For my way of learning, what works for me is videos."
+         T4 event : "The certification is assessed by completing procedures under observation, not by recall."
+         T4 key   : practice   (vs videos)
+         reason   : the skill is assessed by physical performance; a requirement
+
+  [PUSH] visual   (authored books -> videos)
+         T4 setup : "For my way of learning, what works for me is practice."
+         T4 event : "I could not work out from the text how the tools are meant to be positioned relative to each other."
+         T4 key   : videos   (vs practice)
+         reason   : written instructions fail; premise is about books
+
+  [PUSH] bandwidth   (authored videos -> books)
+         T4 setup : "For my way of learning, what works for me is practice."
+         T4 event : "We moved and the connection here will not carry anything streamed reliably."
+         T4 key   : books   (vs practice)
+         reason   : no high-speed internet; premise is about videos
+
+  [PUSH] equipment   (authored practice -> books)
+         T4 setup : "For my way of learning, what works for me is videos."
+         T4 event : "The workshop closed and I cannot afford to replace what was in it."
+         T4 key   : books   (vs videos)
+         reason   : hands-on equipment is gone; premise is about practice
+
+  [PUSH] deadline   (authored practice -> videos)
+         T4 setup : "For my way of learning, what works for me is books."
+         T4 event : "The deadline moved up and I have three evenings to cover a term's worth of material."
+         T4 key   : videos   (vs books)
+         reason   : no window for repeated attempts; premise is about practice
+
+  [PULL] apprentice   (authored videos -> practice)
+         T4 setup : "For my way of learning, what works for me is books."
+         T4 event : "I have been placed with a mentor who only signs off work done in front of him."
+         T4 key   : practice   (vs books)
+         reason   : assessment moved to supervised execution; a requirement
+
+
+### shopping  (way of buying household goods)
+    states: stores, online, markets
+
+  [PULL] relocation   (authored stores -> online)
+         T4 setup : "For my way of buying household goods, what works for me is markets."
+         T4 event : "We moved and the nearest sizeable retail is a three-hour round trip."
+         T4 key   : online   (vs markets)
+         reason   : nearby retail is gone -- markets are physical too, so it bites
+
+  [PULL] freshness   (authored stores -> markets)
+         T4 setup : "For my way of buying household goods, what works for me is online."
+         T4 event : "I have started cooking to whatever is in season and it changes week to week."
+         T4 key   : markets   (vs online)
+         reason   : a cooking project needs fresh seasonal produce
+
+  [PUSH] delivery   (authored online -> stores)
+         T4 setup : "For my way of buying household goods, what works for me is markets."
+         T4 event : "Four expensive orders in a row arrived damaged, late, or not at all."
+         T4 key   : stores   (vs markets)
+         reason   : deliveries keep failing; premise is about online
+
+  [PUSH] walking   (authored markets -> online)
+         T4 setup : "For my way of buying household goods, what works for me is stores."
+         T4 event : "I did my leg and cannot manage prolonged walking or carrying bags for a while."
+         T4 key   : online   (vs stores)
+         reason   : outdoor shopping areas are hard to walk; premise is about markets
+
+  [PULL] community   (authored online -> markets)
+         T4 setup : "For my way of buying household goods, what works for me is stores."
+         T4 event : "I went to a neighbourhood event and have got to know several of the producers since."
+         T4 key   : markets   (vs stores)
+         reason   : vendor interactions became a positive draw
+
+  [PUSH] winter   (authored markets -> stores)
+         T4 setup : "For my way of buying household goods, what works for me is online."
+         T4 event : "The open-air pitches shut from November and only the covered places stay open."
+         T4 key   : stores   (vs online)
+         reason   : the open-air option shut; premise is about markets
+
+
+==============================================================================
+
+pull (T4 sound)   46 / 77
+push (T4 unsound) 31 / 77

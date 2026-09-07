@@ -1,0 +1,10 @@
+pandas>=2.0
+numpy>=1.24
+scipy>=1.10
+matplotlib>=3.7
+scikit-learn>=1.3
+transformers>=4.40
+modal>=1.0
+openai>=1.30
+datasets>=2.19
+huggingface_hub>=0.23

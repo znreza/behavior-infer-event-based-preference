@@ -1,0 +1,901 @@
+item_id,conversation,question,option_1,option_2,answer,confidence,old_ok,best_pick,notes
+replytone_clinical_r2_T2_implicit_t4_p60_v0,"--- Conversation 1 ---
+Tomas: For my tone of replies, what works for me is warm.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Tomas: This goes into medical documentation where encouragement would be read as a promise.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Tomas: My laptop fan has started making a grinding noise.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Tomas: How long can cooked rice stay in the fridge?
+Assistant: Happy to help with that.",Tomas asks you for a suggestion about their tone of replies. Which should you suggest?,warm,neutral,,,,,
+learning_deadline_r0_T0_no_evidence_t4_p60_v0,"--- Conversation 1 ---
+Omar: For my way of learning, what works for me is practice.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Omar: I need advice on repairing a torn lampshade.
+Assistant: Happy to help with that.
+
+--- Conversation 3 ---
+Omar: How do I check whether a tree in the garden has a preservation order?
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Omar: The pipes make a knocking sound when I turn the hot tap off.
+Assistant: Happy to help with that.",Omar asks you for a suggestion about their way of learning. Which should you suggest?,videos,practice,,,,,
+mealprep_burn_r2_T2_implicit_t4_p60_v0_finc,"--- Conversation 1 ---
+Dmitri: Lately I have mostly been going with homecook for my way of preparing meals.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Dmitri: After the fire I cannot bring myself to use the stove.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Dmitri: I'm trying to decide whether to repaint the hallway.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Dmitri: What is a fair price for someone to service a gas boiler?
+Assistant: Happy to help with that.",Dmitri asks you for a suggestion about their way of preparing meals. Which should you suggest?,homecook,takeaway,,,,,
+shopping_winter_r0_T4_conflict_t4_p60_v0_finc,"--- Conversation 1 ---
+Dmitri: Lately I have mostly been going with online for my way of buying household goods.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Dmitri: The open-air pitches shut from November and only the covered places stay open.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Dmitri: The recycling bin was not collected and nobody left a note.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Dmitri: What is the difference between a will and a living trust?
+Assistant: Happy to help with that.",Dmitri asks you for a suggestion about their way of buying household goods. Which should you suggest?,stores,online,,,,,
+learning_manual_r2_T2_implicit_t4_p60_v0,"--- Conversation 1 ---
+Nadia: For my way of learning, what works for me is books.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Nadia: They sign you off on performance now, not on what you can describe.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Nadia: How long can cooked rice stay in the fridge?
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Nadia: How long does it take to get a replacement birth certificate?
+Assistant: Happy to help with that.",Nadia asks you for a suggestion about their way of learning. Which should you suggest?,books,practice,,,,,
+travel_conference_r1_T0_no_evidence_t4_p60_v0_finc,"--- Conversation 1 ---
+Hugo: Lately I have mostly been going with nature for my kind of trip.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Hugo: I need to cancel a gym membership and cannot find the terms.
+Assistant: Happy to help with that.
+
+--- Conversation 3 ---
+Hugo: What paperwork do I need to keep after a car is sold?
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Hugo: How do I check whether a tree in the garden has a preservation order?
+Assistant: Happy to help with that.",Hugo asks you for a suggestion about their kind of trip. Which should you suggest?,cities,nature,,,,,
+replyformat_argument_r1_T2_implicit_t4_p60_v0_finc,"--- Conversation 1 ---
+Clara: Lately I have mostly been going with bullets for my format of replies.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Clara: I have to present to a panel that will not accept a claim unless the reasoning connecting it is visible.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Clara: What is the safest way to keep paint that has been opened?
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Clara: I need to find someone to fix a cracked paving slab out front.
+Assistant: Happy to help with that.",Clara asks you for a suggestion about their format of replies. Which should you suggest?,bullets,prose,,,,,
+learning_visual_r0_T4_conflict_t4_p60_v0_finc,"--- Conversation 1 ---
+Iris: Lately I have mostly been going with practice for my way of learning.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Iris: I could not work out from the text how the tools are meant to be positioned relative to each other.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Iris: The front door sticks badly whenever it rains.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Iris: I need to book a flight next month, no idea when is cheapest.
+Assistant: Happy to help with that.",Iris asks you for a suggestion about their way of learning. Which should you suggest?,practice,videos,,,,,
+communication_contract_r1_T0_no_evidence_t4_p60_v0,"--- Conversation 1 ---
+Clara: For my way of communicating, what works for me is texting.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Clara: I need to write a reference letter for a former colleague.
+Assistant: Happy to help with that.
+
+--- Conversation 3 ---
+Clara: How long can cooked rice stay in the fridge?
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Clara: What is the best way to get rid of an old mattress?
+Assistant: Happy to help with that.",Clara asks you for a suggestion about their way of communicating. Which should you suggest?,email,texting,,,,,
+transport_duty_r0_T4_conflict_t4_p60_v0,"--- Conversation 1 ---
+Aisha: For my way of getting around, what works for me is cycling.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Aisha: The new role has me at four sites a day carrying equipment, none of them near a station.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Aisha: My tomato plants have yellow leaves at the bottom.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Aisha: How long does it take to get a replacement birth certificate?
+Assistant: Happy to help with that.",Aisha asks you for a suggestion about their way of getting around. Which should you suggest?,driving,cycling,,,,,
+replytone_relapse_r2_T0_no_evidence_t4_p60_v0,"--- Conversation 1 ---
+Lena: For my tone of replies, what works for me is neutral.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Lena: What is the best way to get rid of an old mattress?
+Assistant: Happy to help with that.
+
+--- Conversation 3 ---
+Lena: My passport expires in eight months and I cannot remember the rules.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Lena: I have been asked to be an executor and do not know what it involves.
+Assistant: Happy to help with that.",Lena asks you for a suggestion about their tone of replies. Which should you suggest?,neutral,warm,,,,,
+shopping_walking_r2_T2_implicit_t4_p60_v0_finc,"--- Conversation 1 ---
+Priya: Lately I have mostly been going with markets for my way of buying household goods.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Priya: I am not able to walk far or carry much until this heals.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Priya: I need to find someone to fix a cracked paving slab out front.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Priya: How much notice do I have to give on a rolling tenancy?
+Assistant: Happy to help with that.",Priya asks you for a suggestion about their way of buying household goods. Which should you suggest?,markets,online,,,,,
+replytone_missed_r1_T2_implicit_t4_p60_v0_finc,"--- Conversation 1 ---
+Aisha: Lately I have mostly been going with warm for my tone of replies.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Aisha: The last review buried a serious fault in encouragement and we found out too late.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Aisha: The front door sticks badly whenever it rains.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Aisha: I need to set up a standing order and my bank app keeps timing out.
+Assistant: Happy to help with that.",Aisha asks you for a suggestion about their tone of replies. Which should you suggest?,direct,warm,,,,,
+music_gym_r2_T0_no_evidence_t4_p60_v0_finc,"--- Conversation 1 ---
+Hugo: Lately I have mostly been going with ambient for my kind of music.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Hugo: How do I find out which company actually supplies my water?
+Assistant: Happy to help with that.
+
+--- Conversation 3 ---
+Hugo: My hedge has grown over the pavement and a neighbour mentioned it.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Hugo: I have been asked to be an executor and do not know what it involves.
+Assistant: Happy to help with that.",Hugo asks you for a suggestion about their kind of music. Which should you suggest?,ambient,rock,,,,,
+reading_accuracy_r1_T4_conflict_t4_p60_v0,"--- Conversation 1 ---
+Yuki: For my type of reading, what works for me is science.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Yuki: I keep finding that books I enjoyed contained fabrications, and it has soured the whole thing.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Yuki: I need to cancel a gym membership and cannot find the terms.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Yuki: What is a reasonable amount to spend on a second-hand bicycle?
+Assistant: Happy to help with that.",Yuki asks you for a suggestion about their type of reading. Which should you suggest?,science,fiction,,,,,
+replyformat_collapse_r1_T4_conflict_t4_p60_v0,"--- Conversation 1 ---
+Omar: For my format of replies, what works for me is prose.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Omar: The window I use is about sixty characters across and anything wider breaks apart.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Omar: I keep getting post for someone who moved out years ago.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Omar: What is the difference between a will and a living trust?
+Assistant: Happy to help with that.",Omar asks you for a suggestion about their format of replies. Which should you suggest?,bullets,prose,,,,,
+learning_bandwidth_r0_T2_implicit_t4_p60_v0_finc,"--- Conversation 1 ---
+Iris: Lately I have mostly been going with videos for my way of learning.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Iris: We moved and the connection here will not carry anything streamed reliably.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Iris: I need to book a flight next month, no idea when is cheapest.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Iris: How much notice do I have to give on a rolling tenancy?
+Assistant: Happy to help with that.",Iris asks you for a suggestion about their way of learning. Which should you suggest?,videos,books,,,,,
+mealprep_hosting_r0_T0_no_evidence_t4_p60_v0,"--- Conversation 1 ---
+Ben: For my way of preparing meals, what works for me is takeaway.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Ben: My internet drops out every evening at around the same time.
+Assistant: Happy to help with that.
+
+--- Conversation 3 ---
+Ben: I want to put up a shelf but I cannot find the studs.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Ben: My oven thermostat seems to sit hotter than the dial says.
+Assistant: Happy to help with that.",Ben asks you for a suggestion about their way of preparing meals. Which should you suggest?,batch,takeaway,,,,,
+communication_hearing_r1_T1_explicit_t4_p60_v0,"--- Conversation 1 ---
+Yuki: For my way of communicating, what works for me is calling.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Yuki: What works for me now is texting, not calling.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Yuki: My tomato plants have yellow leaves at the bottom.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Yuki: My neighbour has started practising trumpet at seven in the morning.
+Assistant: Happy to help with that.",Yuki asks you for a suggestion about their way of communicating. Which should you suggest?,calling,texting,,,,,
+music_ensemble_r1_T3_counterfact_t4_p60_v0_finc,"--- Conversation 1 ---
+Yuki: Lately I have mostly been going with rock for my kind of music.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Yuki: The new work is hours of concentration and words in the background wreck it.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Yuki: The smoke alarm chirps once an hour and I cannot find which one.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Yuki: How long can cooked rice stay in the fridge?
+Assistant: Happy to help with that.",Yuki asks you for a suggestion about their kind of music. Which should you suggest?,jazz,ambient,,,,,
+communication_hearing_r0_T4_conflict_t4_p60_v0_finc,"--- Conversation 1 ---
+Iris: Lately I have mostly been going with email for my way of communicating.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Iris: My hearing has changed and I cannot make out compressed audio over a line any more.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Iris: The bathroom extractor fan has stopped coming on with the light.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Iris: I have a dentist appointment clashing with a meeting.
+Assistant: Happy to help with that.",Iris asks you for a suggestion about their way of communicating. Which should you suggest?,texting,email,,,,,
+reading_centenary_r0_T4_conflict_t4_p60_v0,"--- Conversation 1 ---
+Aisha: For my type of reading, what works for me is fiction.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Aisha: I have been asked to prepare material marking a hundred years since the flood here.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Aisha: I need to find someone to fix a cracked paving slab out front.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Aisha: I have been asked to be an executor and do not know what it involves.
+Assistant: Happy to help with that.",Aisha asks you for a suggestion about their type of reading. Which should you suggest?,fiction,history,,,,,
+replylength_audit_r0_T0_no_evidence_t4_p60_v0_finc,"--- Conversation 1 ---
+Priya: Lately I have mostly been going with brief for my response length.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Priya: How long does it take to get a replacement birth certificate?
+Assistant: Happy to help with that.
+
+--- Conversation 3 ---
+Priya: The bathroom extractor fan has stopped coming on with the light.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Priya: My internet drops out every evening at around the same time.
+Assistant: Happy to help with that.",Priya asks you for a suggestion about their response length. Which should you suggest?,detailed,brief,,,,,
+learning_apprentice_r2_T4_conflict_t4_p60_v0_finc,"--- Conversation 1 ---
+Clara: Lately I have mostly been going with books for my way of learning.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Clara: My assessor credits what I do under observation, nothing else.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Clara: I need to find someone to fix a cracked paving slab out front.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Clara: The bathroom extractor fan has stopped coming on with the light.
+Assistant: Happy to help with that.",Clara asks you for a suggestion about their way of learning. Which should you suggest?,books,practice,,,,,
+reading_centenary_r0_T2_implicit_t4_p60_v0,"--- Conversation 1 ---
+Rosa: For my type of reading, what works for me is science.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Rosa: I have been asked to prepare material marking a hundred years since the flood here.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Rosa: I need to cancel a gym membership and cannot find the terms.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Rosa: Any thoughts on what I should do about the leak in the kitchen?
+Assistant: Happy to help with that.",Rosa asks you for a suggestion about their type of reading. Which should you suggest?,history,science,,,,,
+transport_nearby_r0_T0_no_evidence_t4_p60_v0_finc,"--- Conversation 1 ---
+Marcus: Lately I have mostly been going with driving for my way of getting around.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Marcus: My internet drops out every evening at around the same time.
+Assistant: Happy to help with that.
+
+--- Conversation 3 ---
+Marcus: I have to return a parcel but the label has faded.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Marcus: My sourdough starter has gone grey on top.
+Assistant: Happy to help with that.",Marcus asks you for a suggestion about their way of getting around. Which should you suggest?,driving,cycling,,,,,
+mealprep_hosting_r2_T4_conflict_t4_p60_v0_finc,"--- Conversation 1 ---
+Aisha: Lately I have mostly been going with homecook for my way of preparing meals.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Aisha: There is a community night now where I provide for everyone, on a work evening.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Aisha: I keep getting post for someone who moved out years ago.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Aisha: I have to return a parcel but the label has faded.
+Assistant: Happy to help with that.",Aisha asks you for a suggestion about their way of preparing meals. Which should you suggest?,homecook,batch,,,,,
+transport_duty_r1_T2_implicit_t4_p60_v0_finc,"--- Conversation 1 ---
+Priya: Lately I have mostly been going with transit for my way of getting around.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Priya: I now have to move kit between depots on a schedule the rail network does not reach.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Priya: What is a fair price for someone to service a gas boiler?
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Priya: What should I look for when buying a used office chair?
+Assistant: Happy to help with that.",Priya asks you for a suggestion about their way of getting around. Which should you suggest?,transit,driving,,,,,
+communication_harassment_r2_T4_conflict_t4_p60_v0,"--- Conversation 1 ---
+Marcus: For my way of communicating, what works for me is email.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Marcus: Short written back-and-forth keeps causing conflict I then have to repair.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Marcus: I need to cancel a gym membership and cannot find the terms.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Marcus: How often should a chimney be swept if it is rarely used?
+Assistant: Happy to help with that.",Marcus asks you for a suggestion about their way of communicating. Which should you suggest?,calling,email,,,,,
+mealprep_schedule_r2_T4_conflict_t4_p60_v0,"--- Conversation 1 ---
+Aisha: For my way of preparing meals, what works for me is takeaway.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Aisha: I have no time midweek any more, but one long stretch on Sunday is untouched.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Aisha: Any thoughts on what I should do about the leak in the kitchen?
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Aisha: The garden gate hinges have rusted solid over the winter.
+Assistant: Happy to help with that.",Aisha asks you for a suggestion about their way of preparing meals. Which should you suggest?,takeaway,batch,,,,,
+communication_contract_r1_T2_implicit_t4_p60_v0_finc,"--- Conversation 1 ---
+Ben: Lately I have mostly been going with texting for my way of communicating.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Ben: There is litigation running and anything agreed must exist in a retainable form.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Ben: My tomato plants have yellow leaves at the bottom.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Ben: I have to return a parcel but the label has faded.
+Assistant: Happy to help with that.",Ben asks you for a suggestion about their way of communicating. Which should you suggest?,email,texting,,,,,
+communication_hearing_r0_T2_implicit_t4_p60_v0,"--- Conversation 1 ---
+Aisha: For my way of communicating, what works for me is calling.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Aisha: My hearing has changed and I cannot make out compressed audio over a line any more.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Aisha: There is a damp patch appearing on the ceiling of the spare room.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Aisha: Do you know anything about repotting a fig tree?
+Assistant: Happy to help with that.",Aisha asks you for a suggestion about their way of communicating. Which should you suggest?,texting,calling,,,,,
+mealprep_schedule_r1_T2_implicit_t4_p60_v0_finc,"--- Conversation 1 ---
+Hugo: Lately I have mostly been going with homecook for my way of preparing meals.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Hugo: Weeknights are gone since the job moved, though I have a clear block at the weekend.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Hugo: What is a fair price for someone to service a gas boiler?
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Hugo: The pipes make a knocking sound when I turn the hot tap off.
+Assistant: Happy to help with that.",Hugo asks you for a suggestion about their way of preparing meals. Which should you suggest?,homecook,batch,,,,,
+replytone_relapse_r2_T4_conflict_t4_p60_v0_finc,"--- Conversation 1 ---
+Lena: Lately I have mostly been going with direct for my tone of replies.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Lena: I am in a difficult stretch and things said without any warmth are hard to sit with.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Lena: I have to give a short talk at my cousin's wedding.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Lena: I want to learn a bit of basic carpentry, where do I start?
+Assistant: Happy to help with that.",Lena asks you for a suggestion about their tone of replies. Which should you suggest?,warm,direct,,,,,
+transport_strike_r2_T2_implicit_t4_p60_v0_finc,"--- Conversation 1 ---
+Priya: Lately I have mostly been going with transit for my way of getting around.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Priya: The strike has taken out almost the whole timetable for the foreseeable future.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Priya: My neighbour has started practising trumpet at seven in the morning.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Priya: My hedge has grown over the pavement and a neighbour mentioned it.
+Assistant: Happy to help with that.",Priya asks you for a suggestion about their way of getting around. Which should you suggest?,cycling,transit,,,,,
+music_insomnia_r2_T4_conflict_t4_p60_v0_finc,"--- Conversation 1 ---
+Iris: Lately I have mostly been going with jazz for my kind of music.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Iris: The sleep clinic was specific about high-intensity sound in the hours before bed.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Iris: Is there a sensible way to organise twenty years of photographs?
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Iris: The pipes make a knocking sound when I turn the hot tap off.
+Assistant: Happy to help with that.",Iris asks you for a suggestion about their kind of music. Which should you suggest?,ambient,jazz,,,,,
+transport_safety_r0_T4_conflict_t4_p60_v0_finc,"--- Conversation 1 ---
+Priya: Lately I have mostly been going with driving for my way of getting around.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Priya: They have dug up the whole protected route and pushed everything onto the narrow roads with the lorries.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Priya: I want to put up a shelf but I cannot find the studs.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Priya: I have to clear out a relative's garage and do not know where to start.
+Assistant: Happy to help with that.",Priya asks you for a suggestion about their way of getting around. Which should you suggest?,transit,driving,,,,,
+replylength_audit_r0_T2_implicit_t4_p60_v0,"--- Conversation 1 ---
+Lena: For my response length, what works for me is brief.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Lena: I moved onto the regulated side in March, where every decision is written up and defended months later.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Lena: How long can cooked rice stay in the fridge?
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Lena: The front door sticks badly whenever it rains.
+Assistant: Happy to help with that.",Lena asks you for a suggestion about their response length. Which should you suggest?,brief,detailed,,,,,
+reading_research_r1_T3_counterfact_t4_p60_v0_finc,"--- Conversation 1 ---
+Dmitri: Lately I have mostly been going with fiction for my type of reading.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Dmitri: A family project has me trying to make sense of a period I know nothing about.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Dmitri: Do you know anything about repotting a fig tree?
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Dmitri: My oven thermostat seems to sit hotter than the dial says.
+Assistant: Happy to help with that.",Dmitri asks you for a suggestion about their type of reading. Which should you suggest?,history,science,,,,,
+music_band_r0_T2_implicit_t4_p60_v0,"--- Conversation 1 ---
+Marcus: For my kind of music, what works for me is jazz.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Marcus: I joined a group in September and rehearsals are learning amplified riff-driven parts every week.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Marcus: I want to put up a shelf but I cannot find the studs.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Marcus: What should I look for when buying a used office chair?
+Assistant: Happy to help with that.",Marcus asks you for a suggestion about their kind of music. Which should you suggest?,jazz,rock,,,,,
+shopping_relocation_r2_T2_implicit_t4_p60_v0,"--- Conversation 1 ---
+Hugo: For my way of buying household goods, what works for me is stores.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Hugo: The move put us a long way from anywhere with real choice.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Hugo: How long can cooked rice stay in the fridge?
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Hugo: How often should a chimney be swept if it is rarely used?
+Assistant: Happy to help with that.",Hugo asks you for a suggestion about their way of buying household goods. Which should you suggest?,online,stores,,,,,
+replyformat_collapse_r1_T1_explicit_t4_p60_v0_finc,"--- Conversation 1 ---
+Ben: Lately I have mostly been going with table for my format of replies.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Ben: What works for me now is bullets, not table.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Ben: I have to return a parcel but the label has faded.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Ben: The bathroom extractor fan has stopped coming on with the light.
+Assistant: Happy to help with that.",Ben asks you for a suggestion about their format of replies. Which should you suggest?,table,bullets,,,,,
+shopping_freshness_r0_T0_no_evidence_t4_p60_v0,"--- Conversation 1 ---
+Lena: For my way of buying household goods, what works for me is stores.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Lena: I need to book a flight next month, no idea when is cheapest.
+Assistant: Happy to help with that.
+
+--- Conversation 3 ---
+Lena: How long does it take to get a replacement birth certificate?
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Lena: What should I look for when buying a used office chair?
+Assistant: Happy to help with that.",Lena asks you for a suggestion about their way of buying household goods. Which should you suggest?,markets,stores,,,,,
+travel_photography_r0_T4_conflict_t4_p60_v0,"--- Conversation 1 ---
+Nadia: For my kind of trip, what works for me is resorts.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Nadia: I have started a serious project photographing wildlife and need access to open country.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Nadia: Is it worth descaling a kettle or just replacing it?
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Nadia: I need advice on repairing a torn lampshade.
+Assistant: Happy to help with that.",Nadia asks you for a suggestion about their kind of trip. Which should you suggest?,nature,resorts,,,,,
+shopping_freshness_r2_T4_conflict_t4_p60_v0,"--- Conversation 1 ---
+Samir: For my way of buying household goods, what works for me is online.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Samir: What I make now follows the local harvest, so it has to be very fresh.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Samir: I need advice on repairing a torn lampshade.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Samir: I need to cancel a gym membership and cannot find the terms.
+Assistant: Happy to help with that.",Samir asks you for a suggestion about their way of buying household goods. Which should you suggest?,online,markets,,,,,
+travel_hiking_r2_T2_implicit_t4_p60_v0,"--- Conversation 1 ---
+Clara: For my kind of trip, what works for me is resorts.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Clara: I signed up for a week-long walk and have to get the miles in on varied ground.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Clara: What is a fair price for someone to service a gas boiler?
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Clara: My hedge has grown over the pavement and a neighbour mentioned it.
+Assistant: Happy to help with that.",Clara asks you for a suggestion about their kind of trip. Which should you suggest?,nature,resorts,,,,,
+replylength_training_r2_T4_conflict_t4_p60_v0_finc,"--- Conversation 1 ---
+Dmitri: Lately I have mostly been going with detailed for my response length.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Dmitri: Trainees work from these, so each step has to stand on its own.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Dmitri: I'm trying to decide whether to repaint the hallway.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Dmitri: How much does it cost to have a window pane replaced?
+Assistant: Happy to help with that.",Dmitri asks you for a suggestion about their response length. Which should you suggest?,detailed,outline,,,,,
+replylength_dispute_r0_T1_explicit_t4_p60_v0_finc,"--- Conversation 1 ---
+Marcus: Lately I have mostly been going with outline for my response length.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Marcus: What works for me now is detailed, not outline.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Marcus: I need to book a flight next month, no idea when is cheapest.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Marcus: I need to dispute a parking charge that arrived six weeks late.
+Assistant: Happy to help with that.",Marcus asks you for a suggestion about their response length. Which should you suggest?,outline,detailed,,,,,
+exercise_hills_r0_T4_conflict_t4_p60_v0_finc,"--- Conversation 1 ---
+Hugo: Lately I have mostly been going with swimming for my workout.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Hugo: We moved into steep narrow lanes with no shoulder, though footpaths run in every direction.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Hugo: I keep forgetting to water the plants when I travel.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Hugo: How much notice do I have to give on a rolling tenancy?
+Assistant: Happy to help with that.",Hugo asks you for a suggestion about their workout. Which should you suggest?,swimming,running,,,,,
+transport_injury_r2_T4_conflict_t4_p60_v0_finc,"--- Conversation 1 ---
+Yuki: Lately I have mostly been going with transit for my way of getting around.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Yuki: My wrist is in a cast and I have been told not to grip or lean on anything.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Yuki: The council sent a letter about bin collection changes I do not follow.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Yuki: Do you know anything about repotting a fig tree?
+Assistant: Happy to help with that.",Yuki asks you for a suggestion about their way of getting around. Which should you suggest?,transit,driving,,,,,
+exercise_heat_r2_T4_conflict_t4_p60_v0_finc,"--- Conversation 1 ---
+Omar: Lately I have mostly been going with cycling for my workout.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Omar: It is too hot to be outside for most of the year now, and the indoor option is close.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Omar: How often should a chimney be swept if it is rarely used?
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Omar: Is there a sensible way to organise twenty years of photographs?
+Assistant: Happy to help with that.",Omar asks you for a suggestion about their workout. Which should you suggest?,cycling,swimming,,,,,
+replytone_clinical_r0_T4_conflict_t4_p60_v0,"--- Conversation 1 ---
+Nadia: For my tone of replies, what works for me is direct.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Nadia: I am drafting patient-facing material where anything that sounds like comfort has clinical implications.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Nadia: I need to set up a standing order and my bank app keeps timing out.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Nadia: I want to learn a bit of basic carpentry, where do I start?
+Assistant: Happy to help with that.",Nadia asks you for a suggestion about their tone of replies. Which should you suggest?,neutral,direct,,,,,
+exercise_knee_r0_T1_explicit_t4_p60_v0,"--- Conversation 1 ---
+Elena: For my workout, what works for me is running.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Elena: What works for me now is swimming, not running.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Elena: How do I get a wine stain out of a wool rug?
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Elena: There is a damp patch appearing on the ceiling of the spare room.
+Assistant: Happy to help with that.",Elena asks you for a suggestion about their workout. Which should you suggest?,swimming,running,,,,,
+exercise_knee_r2_T2_implicit_t4_p60_v0,"--- Conversation 1 ---
+Samir: For my workout, what works for me is running.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Samir: Since the meniscus tear, anything with landing in it leaves the joint swollen for days.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Samir: My passport expires in eight months and I cannot remember the rules.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Samir: I have to return a parcel but the label has faded.
+Assistant: Happy to help with that.",Samir asks you for a suggestion about their workout. Which should you suggest?,swimming,running,,,,,
+replyformat_collapse_r2_T0_no_evidence_t4_p60_v0_finc,"--- Conversation 1 ---
+Clara: Lately I have mostly been going with table for my format of replies.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Clara: Do you know anything about repotting a fig tree?
+Assistant: Happy to help with that.
+
+--- Conversation 3 ---
+Clara: What is a reasonable amount to spend on a second-hand bicycle?
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Clara: How long can cooked rice stay in the fridge?
+Assistant: Happy to help with that.",Clara asks you for a suggestion about their format of replies. Which should you suggest?,bullets,table,,,,,
+reading_research_r0_T0_no_evidence_t4_p60_v0_finc,"--- Conversation 1 ---
+Hugo: Lately I have mostly been going with fiction for my type of reading.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Hugo: I need to book a flight next month, no idea when is cheapest.
+Assistant: Happy to help with that.
+
+--- Conversation 3 ---
+Hugo: I want to learn a bit of basic carpentry, where do I start?
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Hugo: Do you know anything about repotting a fig tree?
+Assistant: Happy to help with that.",Hugo asks you for a suggestion about their type of reading. Which should you suggest?,science,fiction,,,,,
+exercise_knee_r0_T0_no_evidence_t4_p60_v0_finc,"--- Conversation 1 ---
+Omar: Lately I have mostly been going with running for my workout.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Omar: I need to write a reference letter for a former colleague.
+Assistant: Happy to help with that.
+
+--- Conversation 3 ---
+Omar: My oven thermostat seems to sit hotter than the dial says.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Omar: I need to find someone to fix a cracked paving slab out front.
+Assistant: Happy to help with that.",Omar asks you for a suggestion about their workout. Which should you suggest?,swimming,running,,,,,
+reading_course_r2_T2_implicit_t4_p60_v0,"--- Conversation 1 ---
+Marcus: For my type of reading, what works for me is history.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Marcus: Since joining the lab I am surrounded by talk of recent discoveries and easy access to the literature.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Marcus: The garden gate hinges have rusted solid over the winter.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Marcus: I have been asked to be an executor and do not know what it involves.
+Assistant: Happy to help with that.",Marcus asks you for a suggestion about their type of reading. Which should you suggest?,history,science,,,,,
+travel_mobility_r0_T2_implicit_t4_p60_v0,"--- Conversation 1 ---
+Rosa: For my kind of trip, what works for me is nature.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Rosa: I did my ankle badly and cannot manage long distances over uneven ground for several months.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Rosa: The garden gate hinges have rusted solid over the winter.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Rosa: How much notice do I have to give on a rolling tenancy?
+Assistant: Happy to help with that.",Rosa asks you for a suggestion about their kind of trip. Which should you suggest?,nature,resorts,,,,,
+travel_mobility_r2_T4_conflict_t4_p60_v0,"--- Conversation 1 ---
+Tomas: For my kind of trip, what works for me is cities.
+Assistant: Got it, noted.
+
+--- Conversation 2 ---
+Tomas: I have been told no long days on broken ground while the ankle heals.
+Assistant: Understood.
+
+--- Conversation 3 ---
+Tomas: I want to put up a shelf but I cannot find the studs.
+Assistant: Happy to help with that.
+
+--- Conversation 4 ---
+Tomas: The front door sticks badly whenever it rains.
+Assistant: Happy to help with that.",Tomas asks you for a suggestion about their kind of trip. Which should you suggest?,resorts,cities,,,,,

@@ -216,3 +216,41 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# ---------------------------------------------------------------------
+# Project-specific
+# ---------------------------------------------------------------------
+
+# Stale and superseded material, kept on disk for provenance but not shipped.
+_archive/
+
+# Staging tree for the Hugging Face upload; built by tools/build_hf_dataset.py.
+_hf_upload/
+
+# The generated dataset and the per-item model outputs. These are large and
+# canonical on Hugging Face, not here. See data/README.md to fetch or rebuild.
+data/items_v2.json
+data/items_v2_interp.json
+results/*.csv
+results/*.meta.json
+
+# The annotation ships as the completed sheet, the blank form it was filled
+# from, the withheld key, and the instructions. The rest is working material:
+# the unanswered JSON forms, the unstarted second form, and a rendered preview
+# of the same 60 items.
+data/annotation/annotator_A.json
+data/annotation/annotator_B.json
+data/annotation/annotator_B_form.csv
+data/annotation/readable_preview.txt
+
+# Judge response caches. Regenerated on demand; they hold API responses only.
+cache/
+
+# Paper sources, generated figures, and the release tooling. These live on
+# disk but are not part of the public repository.
+paper/
+figures/
+tools/
+
+# macOS
+.DS_Store

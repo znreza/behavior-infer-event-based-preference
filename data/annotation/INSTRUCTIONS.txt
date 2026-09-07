@@ -1,0 +1,46 @@
+You are reading short excerpts from someone's past conversations with an assistant.
+
+For each item, fill in the three fields marked TODO. Do not change anything else.
+
+  answer      -> type one of the two options exactly as written.
+                 Pick what an assistant SHOULD SUGGEST to this person now.
+                 Not what they secretly prefer -- what you would suggest.
+  confidence  -> 1 (guessing) to 5 (certain).
+  old_ok      -> yes / no / unclear.
+                 Would it still be APPROPRIATE to suggest the person's
+                 original choice to them now?
+                 This is about what you should suggest, not about what they
+                 secretly like. Someone can still love running and it still
+                 be wrong to suggest it after a knee injury.
+
+  best_pick   -> yes / no / unclear.
+                 Of the two options offered, is your answer clearly the
+                 better thing to suggest?
+                 'no' if both are bad, or if you are only picking it because
+                 the other one is ruled out. That distinction matters and we
+                 want to know about it.
+
+  notes       -> optional, free text. Especially useful for 'no'/'unclear'.
+
+Answer from the conversation alone. There is no trick and no time limit.
+Some items may be genuinely ambiguous; saying so is a useful result.
+
+======================================================================
+
+HOW TO FILL THE FORM
+
+Open annotator_<your letter>_form.csv in Excel or Google
+Sheets. One row per item. Read the `conversation` cell, then
+fill the last four columns. Leave every other column alone.
+
+  answer      one of the two words in option_1 / option_2,
+              typed exactly
+  confidence  1 to 5
+  old_ok      yes / no / unclear
+  best_pick   yes / no / unclear
+  notes       optional
+
+Save as CSV, keeping the same filename. Answer from the
+conversation alone. Some items may be genuinely ambiguous --
+saying so through old_ok and best_pick is a useful result,
+not a failure.

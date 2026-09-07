@@ -1,0 +1,143 @@
+{
+  "_README": [
+    "You write the anchors. Each one asserts a causal claim -- this old state,",
+    "plus this event, gives this new state -- and that claim is YOURS, not an",
+    "LLM's. The generator only puts it into words.",
+    "",
+    "REQUIREMENTS PER ATTRIBUTE",
+    "  states: at least THREE, so counterfactual and conflict conditions can be",
+    "          built. Each needs a single-token `label` (verified against the",
+    "          tokenizer at build time) -- `transit`, not `public_transit`.",
+    "          Multi-token labels make logit-lens trajectories at the decision",
+    "          token unreadable.",
+    "  events: at least TWO from the same old state, leading to DIFFERENT new",
+    "          states. Without this you cannot tell computing f(S,E) apart from",
+    "          memorising E -> new_state.",
+    "",
+    "EVENT WRITING RULES",
+    "  - never name any state label, in any form",
+    "  - describe what happened, never what the person now wants",
+    "  - one causal step: a reader should not need two inferences",
+    "  - `type` is from the taxonomy below; used for per-type analysis",
+    "",
+    "TAXONOMY (from the colleague's note, kept as-is)",
+    "  constraint   the old option becomes harmful or impossible",
+    "  resource     what the old option required is gone",
+    "  environment   surroundings changed",
+    "  goal          a new goal conflicts with the old option",
+    "  experience    a bad experience with the old option",
+    "",
+    "The three filled examples below are a FORMAT DEMONSTRATION. Replace them.",
+    "If you keep any, treat them as mine and not independently authored."
+  ],
+
+  "attributes": [
+    {
+      "attribute": "transport",
+      "noun": "way of getting around",
+      "states": [
+        {"label": "driving", "gloss": "using their own car"},
+        {"label": "transit", "gloss": "buses and trains"},
+        {"label": "cycling", "gloss": "riding a bike"}
+      ],
+      "events": [
+        {
+          "id": "cost",
+          "type": "resource",
+          "from": "driving",
+          "to": "transit",
+          "effect": "car ownership becomes unaffordable",
+          "note": "insurance, repairs and parking outrun the budget"
+        },
+        {
+          "id": "injury",
+          "type": "constraint",
+          "from": "cycling",
+          "to": "driving",
+          "effect": "cycling becomes physically impossible and distance grows",
+          "note": "broken collarbone plus a job forty miles away"
+        },
+        {
+          "id": "central",
+          "type": "environment",
+          "from": "driving",
+          "to": "cycling",
+          "effect": "everything needed is now within a short ride",
+          "note": "moved into the town centre; distances collapse"
+        }
+      ]
+    },
+
+    {
+      "attribute": "exercise",
+      "noun": "workout",
+      "states": [
+        {"label": "running", "gloss": "road and trail running"},
+        {"label": "swimming", "gloss": "lane swimming at a pool"},
+        {"label": "cycling", "gloss": "riding a bike"}
+      ],
+      "events": [
+        {
+          "id": "knee",
+          "type": "constraint",
+          "from": "running",
+          "to": "swimming",
+          "effect": "high-impact exercise becomes harmful",
+          "note": "torn meniscus; physio bans impact"
+        },
+        {
+          "id": "nopool",
+          "type": "environment",
+          "from": "swimming",
+          "to": "running",
+          "effect": "the facility the old option required disappears",
+          "note": "moved to a village with no pool, plenty of hillside"
+        },
+        {
+          "id": "shoulder",
+          "type": "constraint",
+          "from": "swimming",
+          "to": "cycling",
+          "effect": "overhead arm movement becomes painful",
+          "note": "rotator cuff injury; no overhead motion"
+        }
+      ]
+    },
+
+    {
+      "attribute": "replylength",
+      "noun": "response length",
+      "states": [
+        {"label": "brief", "gloss": "two or three sentences"},
+        {"label": "detailed", "gloss": "full explanation with reasoning"},
+        {"label": "outline", "gloss": "a short structured outline"}
+      ],
+      "events": [
+        {
+          "id": "dispatch",
+          "type": "environment",
+          "from": "detailed",
+          "to": "brief",
+          "effect": "the time available to read a reply collapses",
+          "note": "reads replies between dispatch calls, seconds at a time"
+        },
+        {
+          "id": "audit",
+          "type": "goal",
+          "from": "brief",
+          "to": "detailed",
+          "effect": "every step must now be documented and defensible",
+          "note": "moved into a regulated role where reasoning is auditable"
+        },
+        {
+          "id": "handover",
+          "type": "goal",
+          "from": "detailed",
+          "to": "outline",
+          "effect": "replies must be scannable and passed to someone else",
+          "note": "replies get pasted into a shift handover others read"
+        }
+      ]
+    }
+  ]
+}

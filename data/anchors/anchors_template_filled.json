@@ -1,0 +1,632 @@
+{
+  "_README": [
+    "You write the anchors. Each one asserts a causal claim -- this old state,",
+    "plus this event, gives this new state -- and that claim is YOURS, not an",
+    "LLM's. The generator only puts it into words.",
+    "",
+    "REQUIREMENTS PER ATTRIBUTE",
+    "  states: at least THREE, so counterfactual and conflict conditions can be",
+    "          built. Each needs a single-token `label` (verified against the",
+    "          tokenizer at build time) -- `transit`, not `public_transit`.",
+    "          Multi-token labels make logit-lens trajectories at the decision",
+    "          token unreadable.",
+    "  events: at least TWO from the same old state, leading to DIFFERENT new",
+    "          states. Without this you cannot tell computing f(S,E) apart from",
+    "          memorising E -> new_state.",
+    "",
+    "EVENT WRITING RULES",
+    "  - never name any state label, in any form",
+    "  - describe what happened, never what the person now wants",
+    "  - one causal step: a reader should not need two inferences",
+    "  - `type` is from the taxonomy below; used for per-type analysis",
+    "",
+    "TAXONOMY",
+    "  constraint   the old option becomes harmful or impossible",
+    "  resource     what the old option required is gone",
+    "  environment   surroundings changed",
+    "  goal          a new goal conflicts with the old option",
+    "  experience    a bad experience with the old option"
+  ],
+  "attributes": [
+    {
+      "attribute": "transport",
+      "noun": "way of getting around",
+      "states": [
+        {
+          "label": "driving",
+          "gloss": "using their own car"
+        },
+        {
+          "label": "transit",
+          "gloss": "buses and trains"
+        },
+        {
+          "label": "cycling",
+          "gloss": "riding a bike"
+        }
+      ],
+      "events": [
+        {
+          "id": "cost",
+          "type": "resource",
+          "from": "driving",
+          "to": "transit",
+          "effect": "car ownership becomes unaffordable",
+          "note": "insurance, repairs and parking now consume most of the monthly budget"
+        },
+        {
+          "id": "nearby",
+          "type": "environment",
+          "from": "driving",
+          "to": "cycling",
+          "effect": "daily destinations become close enough to reach without a car",
+          "note": "a move puts work, shops and appointments within a few kilometres"
+        },
+        {
+          "id": "injury",
+          "type": "constraint",
+          "from": "cycling",
+          "to": "driving",
+          "effect": "using a bike becomes medically unsafe",
+          "note": "a wrist fracture leaves the person unable to support weight on handlebars"
+        },
+        {
+          "id": "safety",
+          "type": "environment",
+          "from": "cycling",
+          "to": "transit",
+          "effect": "the route becomes unsafe for bicycles",
+          "note": "major construction removes the only protected route and diverts traffic onto narrow roads"
+        },
+        {
+          "id": "duty",
+          "type": "goal",
+          "from": "transit",
+          "to": "driving",
+          "effect": "a new job requires frequent trips between sites beyond the rail network",
+          "note": "the role involves carrying equipment to several locations each day"
+        }
+      ]
+    },
+    {
+      "attribute": "exercise",
+      "noun": "workout",
+      "states": [
+        {
+          "label": "running",
+          "gloss": "road and trail running"
+        },
+        {
+          "label": "swimming",
+          "gloss": "lane swimming at a pool"
+        },
+        {
+          "label": "cycling",
+          "gloss": "riding a bike"
+        }
+      ],
+      "events": [
+        {
+          "id": "knee",
+          "type": "constraint",
+          "from": "running",
+          "to": "swimming",
+          "effect": "repeated impact becomes harmful",
+          "note": "a torn meniscus leads the physiotherapist to prohibit high-impact training"
+        },
+        {
+          "id": "heat",
+          "type": "environment",
+          "from": "running",
+          "to": "swimming",
+          "effect": "outdoor exertion becomes unsafe during much of the year",
+          "note": "a move brings months of extreme heat while an indoor aquatic facility is nearby"
+        },
+        {
+          "id": "race",
+          "type": "goal",
+          "from": "swimming",
+          "to": "running",
+          "effect": "a new competitive target requires sustained land-based mileage",
+          "note": "the person registers for an event whose preparation depends on progressively longer distances on foot"
+        },
+        {
+          "id": "shoulder",
+          "type": "constraint",
+          "from": "swimming",
+          "to": "cycling",
+          "effect": "repeated arm strokes become painful",
+          "note": "a rotator cuff injury makes overhead movement medically restricted"
+        },
+        {
+          "id": "poolclosure",
+          "type": "resource",
+          "from": "swimming",
+          "to": "cycling",
+          "effect": "the required facility is no longer available",
+          "note": "the local aquatic centre closes indefinitely while a safe cycle network remains accessible"
+        }
+      ]
+    },
+    {
+      "attribute": "replylength",
+      "noun": "response length",
+      "states": [
+        {
+          "label": "brief",
+          "gloss": "two or three sentences"
+        },
+        {
+          "label": "detailed",
+          "gloss": "a full explanation with reasoning"
+        },
+        {
+          "label": "outline",
+          "gloss": "a short structured outline"
+        }
+      ],
+      "events": [
+        {
+          "id": "dispatch",
+          "type": "environment",
+          "from": "detailed",
+          "to": "brief",
+          "effect": "the time available to read messages collapses",
+          "note": "the person now reads between dispatch calls with only seconds available"
+        },
+        {
+          "id": "handover",
+          "type": "goal",
+          "from": "detailed",
+          "to": "outline",
+          "effect": "messages must be scanned and passed to another person",
+          "note": "replies are copied into shift handovers where colleagues need the main points immediately"
+        },
+        {
+          "id": "audit",
+          "type": "goal",
+          "from": "brief",
+          "to": "detailed",
+          "effect": "decisions must now be documented and defensible",
+          "note": "a new regulated role requires reasoning and assumptions to be recorded"
+        },
+        {
+          "id": "phone",
+          "type": "environment",
+          "from": "outline",
+          "to": "brief",
+          "effect": "messages are now consumed on a very small screen during short interruptions",
+          "note": "the person loses desktop access and checks replies mainly while travelling"
+        },
+        {
+          "id": "training",
+          "type": "goal",
+          "from": "brief",
+          "to": "outline",
+          "effect": "the information must be reused as a teaching aid",
+          "note": "responses are now shared with trainees who need key steps separated clearly"
+        }
+      ]
+    },
+    {
+      "attribute": "music",
+      "noun": "kind of music",
+      "states": [
+        {
+          "label": "rock",
+          "gloss": "guitar-driven rock music"
+        },
+        {
+          "label": "jazz",
+          "gloss": "jazz and improvisational music"
+        },
+        {
+          "label": "ambient",
+          "gloss": "slow atmospheric instrumental music"
+        }
+      ],
+      "events": [
+        {
+          "id": "focus",
+          "type": "goal",
+          "from": "rock",
+          "to": "ambient",
+          "effect": "music is now used primarily to sustain concentration during demanding work",
+          "note": "the person begins spending long sessions writing and finds prominent vocals distracting"
+        },
+        {
+          "id": "ensemble",
+          "type": "experience",
+          "from": "rock",
+          "to": "jazz",
+          "effect": "a new live experience reveals a strong attraction to improvisation",
+          "note": "after attending several small ensemble performances, the person becomes absorbed by spontaneous solos"
+        },
+        {
+          "id": "insomnia",
+          "type": "constraint",
+          "from": "rock",
+          "to": "ambient",
+          "effect": "high-intensity sound worsens an existing sleep problem",
+          "note": "a clinician recommends avoiding stimulating audio in the evening"
+        },
+        {
+          "id": "study",
+          "type": "goal",
+          "from": "jazz",
+          "to": "ambient",
+          "effect": "the main listening context changes to quiet late-night study",
+          "note": "complex rhythmic changes repeatedly interrupt concentration while working"
+        },
+        {
+          "id": "improv",
+          "type": "experience",
+          "from": "ambient",
+          "to": "jazz",
+          "effect": "a new performance experience makes highly interactive playing especially compelling",
+          "note": "a friend takes the person to a series of small sessions where musicians respond spontaneously to one another"
+        }
+      ]
+    },
+    {
+      "attribute": "reading",
+      "noun": "type of reading",
+      "states": [
+        {
+          "label": "fiction",
+          "gloss": "novels and narrative stories"
+        },
+        {
+          "label": "history",
+          "gloss": "books about historical events"
+        },
+        {
+          "label": "science",
+          "gloss": "books explaining scientific topics"
+        }
+      ],
+      "events": [
+        {
+          "id": "research",
+          "type": "goal",
+          "from": "fiction",
+          "to": "science",
+          "effect": "a new project requires understanding technical concepts",
+          "note": "the person begins work on a project involving genetics and needs background knowledge"
+        },
+        {
+          "id": "archive",
+          "type": "goal",
+          "from": "fiction",
+          "to": "history",
+          "effect": "a family project requires understanding a past period",
+          "note": "while tracing relatives, the person needs to learn about the places and decades in which they lived"
+        },
+        {
+          "id": "accuracy",
+          "type": "experience",
+          "from": "history",
+          "to": "fiction",
+          "effect": "a series of heavily disputed accounts undermines trust in the material",
+          "note": "the person repeatedly discovers that books they enjoyed contained major factual errors"
+        },
+        {
+          "id": "course",
+          "type": "environment",
+          "from": "history",
+          "to": "science",
+          "effect": "the surrounding community now discusses technical discoveries and provides accessible material",
+          "note": "a move into a research-oriented workplace brings frequent recommendations and a well-stocked technical library"
+        },
+        {
+          "id": "exhaustion",
+          "type": "constraint",
+          "from": "science",
+          "to": "fiction",
+          "effect": "mentally demanding material becomes difficult to tolerate after a major increase in cognitive workload",
+          "note": "the person spends the day analysing dense technical documents and has little concentration left afterward"
+        }
+      ]
+    },
+    {
+      "attribute": "travel",
+      "noun": "kind of trip",
+      "states": [
+        {
+          "label": "cities",
+          "gloss": "urban destinations with museums and restaurants"
+        },
+        {
+          "label": "nature",
+          "gloss": "outdoor destinations and landscapes"
+        },
+        {
+          "label": "resorts",
+          "gloss": "destinations centred on rest and amenities"
+        }
+      ],
+      "events": [
+        {
+          "id": "burnout",
+          "type": "constraint",
+          "from": "cities",
+          "to": "resorts",
+          "effect": "a period of severe work exhaustion makes highly scheduled trips unmanageable",
+          "note": "after months of overtime, the person needs a trip with minimal planning and few decisions"
+        },
+        {
+          "id": "photography",
+          "type": "goal",
+          "from": "cities",
+          "to": "nature",
+          "effect": "a new hobby requires access to landscapes and wildlife",
+          "note": "the person begins a serious photography project focused on animals and natural scenery"
+        },
+        {
+          "id": "crowding",
+          "type": "experience",
+          "from": "cities",
+          "to": "nature",
+          "effect": "a series of overcrowded trips makes dense tourist areas aversive",
+          "note": "long queues and packed streets repeatedly dominate recent holidays"
+        },
+        {
+          "id": "mobility",
+          "type": "constraint",
+          "from": "nature",
+          "to": "resorts",
+          "effect": "long walks over uneven ground become temporarily unsafe",
+          "note": "an ankle injury requires several months without strenuous hiking"
+        },
+        {
+          "id": "architecture",
+          "type": "goal",
+          "from": "resorts",
+          "to": "cities",
+          "effect": "a new academic interest requires visiting museums and historic buildings",
+          "note": "the person starts studying architecture and wants to see major works in person"
+        }
+      ]
+    },
+    {
+      "attribute": "cooking",
+      "noun": "way of preparing meals",
+      "states": [
+        {
+          "label": "cooking",
+          "gloss": "preparing meals from ingredients"
+        },
+        {
+          "label": "takeout",
+          "gloss": "ordering prepared food"
+        },
+        {
+          "label": "batching",
+          "gloss": "preparing many meals at once for later"
+        }
+      ],
+      "events": [
+        {
+          "id": "schedule",
+          "type": "environment",
+          "from": "cooking",
+          "to": "batching",
+          "effect": "weekday meal preparation time disappears but one long weekly session remains available",
+          "note": "a new commute leaves evenings crowded while Sunday afternoons remain free"
+        },
+        {
+          "id": "renovation",
+          "type": "resource",
+          "from": "cooking",
+          "to": "takeout",
+          "effect": "the kitchen becomes unusable",
+          "note": "a plumbing failure leaves the home without a working stove or sink for several weeks"
+        },
+        {
+          "id": "savings",
+          "type": "goal",
+          "from": "takeout",
+          "to": "cooking",
+          "effect": "a new financial target requires sharply reducing discretionary spending",
+          "note": "the person begins saving for a major purchase and reviews how much prepared meals cost each month"
+        },
+        {
+          "id": "hosting",
+          "type": "goal",
+          "from": "takeout",
+          "to": "batching",
+          "effect": "the person must regularly provide food for a large group with limited time",
+          "note": "a weekly community activity now requires bringing enough food for many participants"
+        },
+        {
+          "id": "burn",
+          "type": "experience",
+          "from": "cooking",
+          "to": "takeout",
+          "effect": "a dangerous accident creates a strong aversion to using the kitchen",
+          "note": "a serious oil fire during meal preparation causes significant damage and anxiety"
+        }
+      ]
+    },
+    {
+      "attribute": "communication",
+      "noun": "way of communicating",
+      "states": [
+        {
+          "label": "email",
+          "gloss": "written asynchronous messages"
+        },
+        {
+          "label": "calling",
+          "gloss": "live voice conversations"
+        },
+        {
+          "label": "texting",
+          "gloss": "short instant written messages"
+        }
+      ],
+      "events": [
+        {
+          "id": "urgent",
+          "type": "goal",
+          "from": "email",
+          "to": "calling",
+          "effect": "the new work requires resolving urgent issues immediately",
+          "note": "delays of even an hour can halt operations and decisions often require rapid back-and-forth"
+        },
+        {
+          "id": "traveling",
+          "type": "environment",
+          "from": "email",
+          "to": "texting",
+          "effect": "the person is frequently away from a computer and has only brief opportunities to respond",
+          "note": "a new routine involves moving between sites throughout the day"
+        },
+        {
+          "id": "hearing",
+          "type": "constraint",
+          "from": "calling",
+          "to": "texting",
+          "effect": "understanding speech over a connection becomes unreliable",
+          "note": "a hearing change makes compressed telephone audio difficult to distinguish"
+        },
+        {
+          "id": "record",
+          "type": "goal",
+          "from": "calling",
+          "to": "email",
+          "effect": "important decisions now require a permanent searchable record",
+          "note": "a compliance process requires agreements and approvals to be documented"
+        },
+        {
+          "id": "harassment",
+          "type": "experience",
+          "from": "texting",
+          "to": "calling",
+          "effect": "repeated misunderstandings in short written exchanges cause serious conflict",
+          "note": "several important relationships are damaged after tone is repeatedly misread in messages"
+        }
+      ]
+    },
+    {
+      "attribute": "learning",
+      "noun": "way of learning",
+      "states": [
+        {
+          "label": "reading",
+          "gloss": "learning primarily from written material"
+        },
+        {
+          "label": "videos",
+          "gloss": "learning from recorded visual instruction"
+        },
+        {
+          "label": "practice",
+          "gloss": "learning through repeated hands-on attempts"
+        }
+      ],
+      "events": [
+        {
+          "id": "manual",
+          "type": "goal",
+          "from": "reading",
+          "to": "practice",
+          "effect": "the new skill is evaluated through physical performance rather than recall",
+          "note": "a certification requires completing a series of procedures under observation"
+        },
+        {
+          "id": "visual",
+          "type": "experience",
+          "from": "reading",
+          "to": "videos",
+          "effect": "written instructions repeatedly fail to clarify spatial movements",
+          "note": "the person struggles to understand how tools should be positioned from text alone"
+        },
+        {
+          "id": "bandwidth",
+          "type": "resource",
+          "from": "videos",
+          "to": "reading",
+          "effect": "reliable high-speed internet becomes unavailable",
+          "note": "a move leaves the household with a slow connection that cannot reliably stream lessons"
+        },
+        {
+          "id": "equipment",
+          "type": "resource",
+          "from": "practice",
+          "to": "reading",
+          "effect": "the equipment required for hands-on work is no longer accessible",
+          "note": "the workshop closes and replacement equipment is too expensive to obtain"
+        },
+        {
+          "id": "deadline",
+          "type": "environment",
+          "from": "practice",
+          "to": "videos",
+          "effect": "the available preparation window becomes too short for repeated attempts",
+          "note": "an unexpected deadline leaves only a few evenings to cover a large amount of material"
+        }
+      ]
+    },
+    {
+      "attribute": "shopping",
+      "noun": "way of buying household goods",
+      "states": [
+        {
+          "label": "stores",
+          "gloss": "buying items in physical shops"
+        },
+        {
+          "label": "online",
+          "gloss": "ordering through websites"
+        },
+        {
+          "label": "markets",
+          "gloss": "buying from local markets and vendors"
+        }
+      ],
+      "events": [
+        {
+          "id": "relocation",
+          "type": "environment",
+          "from": "stores",
+          "to": "online",
+          "effect": "nearby retail access disappears",
+          "note": "a move places the nearest major shops several hours away"
+        },
+        {
+          "id": "freshness",
+          "type": "goal",
+          "from": "stores",
+          "to": "markets",
+          "effect": "a new cooking project requires unusually fresh seasonal ingredients",
+          "note": "the person begins preparing meals whose ingredients change with the local harvest"
+        },
+        {
+          "id": "delivery",
+          "type": "experience",
+          "from": "online",
+          "to": "stores",
+          "effect": "repeated delivery failures make remote purchases unreliable",
+          "note": "several expensive orders arrive damaged, late, or not at all"
+        },
+        {
+          "id": "mobility",
+          "type": "constraint",
+          "from": "markets",
+          "to": "online",
+          "effect": "walking through large outdoor shopping areas becomes temporarily difficult",
+          "note": "a leg injury prevents prolonged walking and carrying bags"
+        },
+        {
+          "id": "community",
+          "type": "experience",
+          "from": "online",
+          "to": "markets",
+          "effect": "regular interactions with local vendors create a strong positive experience",
+          "note": "after attending a neighbourhood event, the person develops relationships with several producers"
+        }
+      ]
+    }
+  ]
+}
