@@ -24,7 +24,7 @@ WHERE the chain breaks, and that is this judge's job:
     if it does, does it connect that to the recommendation?
     if it declines to switch, on what grounds?
 
-BLINDING -- the reason to trust the output
+BLINDING
 ------------------------------------------
 A judge that can see the answer key or the model's own answer will rationalise
 whatever it is shown. So the judge gets:
@@ -41,7 +41,7 @@ happens here, after the call. T1 is included as calibration: a judge that
 cannot see the conclusion in a T1 trace, where the event states the answer
 outright, is not measuring anything and its T2 numbers should be discarded.
 
-TRACE TRUNCATION -- read this before quoting any number
+TRACE TRUNCATION
 -------------------------------------------------------
 For the phase-3 run the stored `reasoning` is the FIRST 3000 characters of a
 median 6110-character trace, i.e. about half, head-first. The judge therefore
@@ -52,8 +52,6 @@ re-run generation with the trace kept whole:
     modal run modal_runner.py --experiment generate --thinking \\
         --raw-chars 24000 ... --tag phase3_full
 
-The runner now stores head+tail rather than head only, so a re-run is
-re-scorable even at the old limit.
 """
 
 import argparse

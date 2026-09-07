@@ -14,8 +14,7 @@ but never said out loud in the conversation. Median overlap between the event
 name and the best-matching episode was 0.33, and the graph's own date pointed at
 the right episode 1.7% of the time. Items mined from it test nothing.
 
-Before trusting any other dataset, run the same test. A dataset is usable for
-event-to-preference inference only if the reason for a change appears in the
+A dataset is usable for event-to-preference inference only if the reason for a change appears in the
 dialogue, in the user's own words, without stating the new preference outright.
 
 WHAT TO LOOK FOR
@@ -24,17 +23,16 @@ WHAT TO LOOK FOR
   reason narrated in the dialogue    overlap between that reason and the text
   new value NOT in the event text    otherwise it is an explicit item
 
-PersonaMem is the more promising of the two: it advertises query types for
-tracking preference evolution and for revisiting the reasons behind preference
+PersonaMem advertises query types for tracking preference evolution and for revisiting the reasons behind preference
 updates. A question of the form "why did this user change their mind about X"
-is only answerable if the reason is in the context, so the prior is good. Verify
-rather than assume.
+is only answerable if the reason is in the context, so the prior is good.
 
-I do not know either schema. `search` finds the dataset id, `schema` dumps the
-structure, and `probe` runs the diagnostic once you have filled in FIELD_MAP.
 """
 
-import argparse, json, re, sys
+import argparse
+import json
+import re
+import sys
 from collections import Counter
 
 # Guesses only -- resolve with `search` before using.
@@ -94,7 +92,7 @@ def cmd_configs(dataset, rows):
     """Dump every config's fields at once. A dataset's interesting content is
     often not in the first config -- PersonaMem-v3's `persona_context` is a raw
     activity log, while the preference-update questions live elsewhere."""
-    from datasets import load_dataset, get_dataset_config_names
+    from datasets import get_dataset_config_names, load_dataset
     cfgs = get_dataset_config_names(dataset)
     print(f"{dataset}: configs = {cfgs}\n")
     for c in cfgs:
@@ -168,7 +166,8 @@ def cmd_scan(dataset, config, split, field, rows, show):
 def load_local(path):
     """RealPref and similar ship on GitHub, not the Hub. Point at a cloned repo
     directory or a single file; json / jsonl / csv are read."""
-    import os, csv as _csv
+    import csv as _csv
+    import os
     files = []
     if os.path.isdir(path):
         for root, _, names in os.walk(path):
@@ -365,7 +364,7 @@ def cmd_search(name):
 
 
 def cmd_schema(dataset, config, split, n):
-    from datasets import load_dataset, get_dataset_config_names
+    from datasets import get_dataset_config_names, load_dataset
     try:
         cfgs = get_dataset_config_names(dataset)
         print(f"configs: {cfgs}")
@@ -412,6 +411,7 @@ def cmd_schema(dataset, config, split, n):
 
 def cmd_probe(dataset, config, split, n_rows, seed, where=None):
     import random
+
     from datasets import load_dataset
     if not FIELD_MAP.get("conversation") or not FIELD_MAP.get("reason"):
         sys.exit("fill FIELD_MAP['conversation'] and FIELD_MAP['reason'] first "

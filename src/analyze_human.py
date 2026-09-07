@@ -3,8 +3,7 @@
 
     python analyze_human.py
 
-Two numbers matter and they are not the same number. The unconditional
-accuracy answers "can a person do this task". The accuracy conditioned on the
+The unconditional accuracy answers "can a person do this task". The accuracy conditioned on the
 annotator's own `old_ok` field answers "can a person do this task on the items
 where they accept that the event makes the stated preference unusable". The
 second is the ceiling the paper quotes, because an annotator who rejects an

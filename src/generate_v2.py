@@ -13,8 +13,7 @@ conversation. So the ground truth is not an LLM's judgement about what counts as
 a valid inference; that was the main bias in v1, where the answer key came from
 the same process that wrote the items.
 
-The wording is still authored (by me), which is a smaller and more checkable
-problem: `check_leaks` verifies no state label appears in any event, and the
+`check_leaks` verifies no state label appears in any event, and the
 surface-feature baseline in `surface_baseline()` verifies the target cannot be
 predicted from option length, position or lexical overlap alone.
 
@@ -41,7 +40,11 @@ distance-to-question. They are generated as independent factors so the two can
 be attributed separately.
 """
 
-import argparse, json, random, re, sys
+import argparse
+import json
+import random
+import re
+import sys
 from collections import Counter, defaultdict
 
 # ---------------------------------------------------------------------------
@@ -49,7 +52,7 @@ from collections import Counter, defaultdict
 # Written to state WHAT HAPPENED and never what the person now wants, and never
 # to contain any state label. `check_leaks` enforces the second rule.
 # ---------------------------------------------------------------------------
-from realizations import R as REALIZATIONS   # keyed "attribute/event_id"
+from realizations import R as REALIZATIONS  # keyed "attribute/event_id"
 
 
 def rkey(attr, ev):
@@ -88,9 +91,6 @@ FILLER = [
     "My sourdough starter has gone grey on top.",
     "What is a fair price for someone to service a gas boiler?",
     "I keep forgetting to water the plants when I travel.",
-    # Added so a 50-turn conversation never repeats a turn: the pool was 26
-    # and n_turns=50 reused 22 of them verbatim. Same register as above,
-    # and checked to contain no state label of any attribute.
     "The washing machine has started leaving marks on light clothes.",
     "I need to find someone to fix a cracked paving slab out front.",
     "How often should a chimney be swept if it is rarely used?",
@@ -493,11 +493,11 @@ def surface_baseline(items, n=3000, seed=0):
     """
     try:
         import numpy as np
+        from sklearn.feature_extraction import DictVectorizer
         from sklearn.linear_model import LogisticRegression
+        from sklearn.model_selection import cross_val_score
         from sklearn.pipeline import make_pipeline
         from sklearn.preprocessing import StandardScaler
-        from sklearn.model_selection import cross_val_score
-        from sklearn.feature_extraction import DictVectorizer
     except ImportError:
         print("(install scikit-learn to run the surface baseline)")
         return None

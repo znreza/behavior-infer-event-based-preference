@@ -20,7 +20,6 @@ we test avoids both.
 
 - **Paper:** ARXIV_URL
 - **Dataset:** HF_URL
-- **Contact:** zarreen.reza@joulesai.com
 
 ## The diagnostic
 
@@ -186,8 +185,8 @@ Where both readouts apply they agree, and both are reported.
 ## Citation
 
 ```bibtex
-@misc{BIBKEY,
-  title  = {TITLE},
+@misc{reza2026userpreference,
+  title  = {Why Personalized LLM Agents Fail at Implicit Preference Updates},
   author = {Zarreen Reza},
   year   = {2026},
   eprint = {ARXIV_ID},

@@ -5,9 +5,6 @@
 
 Writes <name>_rescored.csv beside the input and prints what changed.
 
-This is only possible because the runner records opt_a/opt_b alongside raw --
-without the displayed option pair a reply cannot be scored after the fact. It
-is what makes a parser fix cheap: no re-run, same generations, new parse.
 """
 import argparse
 import os

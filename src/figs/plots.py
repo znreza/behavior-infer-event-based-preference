@@ -1,16 +1,19 @@
 #!/usr/bin/env python3
-"""Paper figures. Run from the repo root:  python src/figs/plots.py
+"""Run from the repo root:  python src/figs/plots.py
 
-Palette validated with the dataviz six-checks script at 2, 3 and 4 slots
-(all PASS, worst adjacent CVD dE 11.0 deutan). Colour carries the 2-3 level
-factors only; models are small multiples, conditions are axis positions.
 """
-import json, os, re, sys
+import json
+import os
+import re
+import sys
+
 # Run from the repo root, so src/ is not on the path by default and the
 # sibling modules in it would not import.
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-import numpy as np, pandas as pd
 import matplotlib as mpl
+import numpy as np
+import pandas as pd
+
 mpl.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
@@ -280,7 +283,7 @@ def fig_controls():
     # choice; counting it put the median at 4% instead of 24%.
     import sys as _s
     _s.path.insert(0, ".")
-    from parsing import _match, _letter_ref
+    from parsing import _letter_ref, _match
     TAG = re.compile(r"<answer>\s*(.*?)\s*</answer>", re.S | re.I)
     pos = []
     for r in tf[tf.parsed].itertuples():
@@ -383,11 +386,7 @@ def fig_teaser():
            TINT_B, BLUE)
     ax.text(bx0 + 0.008, 0.707, "turn 1, the stated preference", fontsize=6.0,
             color=BLUE)
-    # An event that removes the option outright, rather than one that makes
-    # it merely expensive. A cost pressure invites the reading that the user
-    # could still choose the stated option, which is the wrong impression for
-    # the first figure to leave. The annotator endorsed this item's premise
-    # at full confidence.
+    
     bubble(bx0, 0.594, bx1, 0.680,
            "user: The strike has taken out almost the\nwhole timetable "
            "for the foreseeable future.",
@@ -463,23 +462,12 @@ def fig_teaser():
 
 
 # ================================================================ fig tradeoff
-# A warm two-slot palette for this figure only, because here colour encodes the
-# two kinds of error rather than the two models. Validated with the six-checks
-# script at 2 slots: all PASS, adjacent CVD dE 18.5 deutan. The contrast warning
-# on the lighter slot is answered by labelling every point directly.
+
 ROSE, SAND = "#B4656F", "#E0A458"
 
 
 def fig_tradeoff():
     """The two directions of failure, one panel per model.
-
-    Each panel holds one line per kind of error against the three framings.
-    As the framing loosens, the assistant stops keeping the option the event
-    has ruled out and starts departing from what the user has just asked for,
-    so the two lines move in opposite directions. Under natural chat a model
-    may decline to name an option at all; the dashed lines count a decline as
-    a failure to serve the request, and they separate from the solid lines
-    only there, because nothing is declined under the other two framings.
     """
     QMn, GMn = "Qwen/Qwen3.5-9B", "google/gemma-3-12b-it"
     exam = {QMn: R("generate_thinkoff__phase1_gen_rescored"),

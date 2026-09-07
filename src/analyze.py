@@ -8,8 +8,7 @@ WHY THIS EXISTS
 ---------------
 `modal run` loads main() and summarize() into the local process when it starts,
 so editing the analysis while a run is in flight does not change that run's
-printed output. The CSV is written BEFORE summarize is called, though, so the
-data is never lost -- point this at the file and get the current analysis.
+printed output. 
 """
 import argparse
 import os
